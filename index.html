@@ -2,32 +2,42 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   
   <title>Frontend Mentor | QR code component</title>
-
- 
-
 </head>
 <body>
-  <div class="card">
-    <div class="card__image">
-      <img class="card__image--qr" src="/images/image-qr-code.png" alt="QR code">
+  <!-- Componente principal -->
+  <main>
+    <div class="card" role="article" aria-label="QR code component">
+      <!-- Sección de imagen -->
+      <div class="card__image" role="img" aria-label="QR code container">
+        <img 
+          class="card__image--qr" 
+          src="./images/image-qr-code.png" 
+          alt="QR code to access Frontend Mentor website"
+          loading="eager"
+        >
+      </div>
+      
+      <!-- Sección de título -->
+      <div class="card__title" role="heading" aria-level="1">
+        <h2>Improve your front-end skills by building projects</h2>
+      </div>
+      
+      <!-- Sección de descripción -->
+      <div class="card__subtitle" role="contentinfo">
+        <p>Scan the QR code to visit Frontend Mentor and take your coding skills to the next level</p>
+      </div>
     </div>
-    <div class="card__title">
-      <h2>  Improve your front-end skills by building projects</h2>
-    </div>
-    <div class="card__subtitle">
-      <h3>  Scan the QR code to visit Frontend Mentor and take your coding skills to the next level</h3>
-    </div>
-
-  </div>
+  </main>
  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">GERB DEV</a>.
-  </div>
+  <!-- Pie de página con atribución -->
+  <footer class="attribution" role="contentinfo">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" rel="noopener">Frontend Mentor</a>. 
+    Coded by <a href="#" rel="author">GERB DEV</a>.
+  </footer>
 </body>
 </html>
