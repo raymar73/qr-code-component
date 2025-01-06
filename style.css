@@ -1,45 +1,127 @@
-/* <!-- Feel free to remove these styles or customise in your own stylesheet 👍 --> */
-/* .attribution { font-size: 11px; text-align: center; } */
-.attribution a {
-  color: hsl(228, 45%, 44%);
+/* Primero importamos la fuente desde Google Fonts al inicio del archivo */
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap");
+
+/* Variables globales del componente QR Card */
+:root {
+  --White: hsl(0, 0%, 100%);
+  --Slate300: hsl(212, 45%, 89%);
+  --Slate500: hsl(216, 15%, 48%);
+  --Slate900: hsl(218, 44%, 22%);
+  --border-radius-card: 20px;
+  --border-radius-qr: 15px;
+  --spacing-standard: 20px;
+  --spacing-wide: 35px;
+
+  /* Agregamos variables para la tipografía */
+  --font-family: "Outfit", sans-serif;
+  --font-size-paragraph: 0.9375rem; /* 15px */
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+
+  /* Agregamos breakpoints */
+  --mobile-width: 375px;
+  --desktop-width: 1440px;
 }
+/* Reset CSS básico */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+/* Layout principal centrado */
 body {
-  background-color: #ecf0f1;
+  background-color: var(--Slate300);
+  font-family: var(--font-family);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   margin: 0;
-  .card {
-    background-color: #ffffff;
-    width: 350px;
-    height: 550px;
-    display: flex;
-    flex-direction: column;
-    /* justify-content: center; */
-    align-items: center;
-    .imagen {
-      margin-top: 20px;
-      width: 300px;
-      height: 300px;
-      img {
-        width: 100%;
-        height: 100%;
-        z-index: 1;
-      }
+}
+/* Componente Card 
+ * Contenedor principal que utiliza flexbox para organizar su contenido
+ * Dimensiones fijas convertidas a rem para mejor escalabilidad
+ */
+.card {
+  background-color: var(--White);
+  width: 21.875rem;
+  height: 33.125rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: var(--border-radius-card);
+  -webkit-border-radius: var(--border-radius-card);
+  -moz-border-radius: var(--border-radius-card);
+  -ms-border-radius: var(--border-radius-card);
+  -o-border-radius: var(--border-radius-card);
+  /* Contenedor de la imagen QR */
+  .card__image {
+    margin-top: 1.25rem;
+    width: 18.75rem;
+    height: 18.75rem;
+    /* Imagen QR con bordes redondeados */
+    .card__image--qr {
+      width: 100%;
+      height: 100%;
+      border-radius: var(--border-radius-qr);
+      -webkit-border-radius: var(--border-radius-qr);
+      -moz-border-radius: var(--border-radius-qr);
+      -ms-border-radius: var(--border-radius-qr);
+      -o-border-radius: var(--border-radius-qr);
     }
   }
-  .titulo {
-    /* background-color: rgb(188, 143, 143, 0.4); */
+  /* Título principal de la card */
+  .card__title {
     text-align: center;
-    margin: 0px 30px;
-    font-weight: bold;
+    margin: var(--spacing-standard) var(--spacing-wide);
+    font-weight: var(--font-weight-bold); /* Usamos 700 para el título */
+    font-size: var(--font-size-paragraph);
   }
-  .subtitulo {
-    /* background-color: rgb(9, 240, 17, 0.4); */
-    color: rgb(191, 191, 194);
+  /* Subtítulo con descripción */
+  .card__subtitle {
+    color: var(--Slate500);
+    font-size: var(--font-size-paragraph); /* Actualizamos a 15px */
+    margin: 0 var(--spacing-wide);
+    font-weight: var(--font-weight-regular);
     text-align: center;
-    font-size: 14px;
-    margin: 0px 30px;
   }
 }
+/* Atribución y créditos */
+.attribution {
+  margin-top: var(--spacing-standard);
+  font-size: 0.75rem;
+  text-align: center;
+  .attribution a {
+    color: hsl(228, 45%, 44%);
+  }
+}
+/* Media query para escritorio (1440px) */
+@media screen and (min-width: 1440px) {
+    .card {
+      /* Podemos ajustar sombras o efectos específicos para desktop */
+      box-shadow: 0 1.25rem 1.875rem rgba(0, 0, 0, 0.05);
+    }
+  }
+  
+  /* Media query para dispositivos entre móvil y desktop */
+  @media screen and (min-width: 376px) and (max-width: 1439px) {
+    .card {
+      /* La card mantiene su tamaño pero podemos ajustar márgenes */
+      margin: 2rem;
+    }
+  }
+  
+  /* Para asegurar que en pantallas muy pequeñas el diseño se mantiene */
+  @media screen and (max-width: 374px) {
+    .card {
+      width: 90%; /* Hace la card responsive en pantallas muy pequeñas */
+      height: auto; /* Altura automática para mantener proporciones */
+      padding-bottom: 2rem;
+    }
+  
+    .card__image {
+      width: 90% !important;
+      height: auto !important;
+    }
+  }  
